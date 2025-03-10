@@ -12,6 +12,7 @@ class ProductCubit extends Cubit<ProductState> {
   ProductRepo productRepo = ProductRepo();
   getProductData() async {
     try {
+      await Future.delayed(Duration(seconds: 3));
       final List<ProductModel> products = await productRepo.getProductData();
       emit(ProductLoaded(products));
     } catch (e) {
